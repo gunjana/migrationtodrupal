@@ -20,9 +20,12 @@ class CustomMapping extends ProcessPluginBase {
    */
   public function transform($value, MigrateExecutableInterface $migrate_executable, Row $row, $destination_property) {
     $mapping_config = \Drupal::config('migration_to_drupal.mapping');
-    if (isset($mapping_config->get($destination_property))) {
+    if (!is_null($mapping_config->get($destination_property))) {
       $source_key = $mapping_config->get($destination_property);
       return $row->getSourceProperty($source_key);
+    }
+    else {
+      \Drupal::logger('migration_to_drupal')->info('Mapping Config should not be empty.');
     }
     return NULL;
   }
