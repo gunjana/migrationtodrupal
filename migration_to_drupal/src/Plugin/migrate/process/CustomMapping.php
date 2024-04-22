@@ -22,10 +22,14 @@ class CustomMapping extends ProcessPluginBase {
     $mapping_config = \Drupal::config('migration_to_drupal.mapping');
     if (!is_null($mapping_config->get($destination_property))) {
       $source_key = $mapping_config->get($destination_property);
+      if ($source_key == 'loc') {
+        $loc = [
+          "lat" => $row->getSource()['location'][0],
+          "lng" => $row->getSource()['location'][1],
+        ];
+        return $loc;
+      }
       return $row->getSourceProperty($source_key);
-    }
-    else {
-      \Drupal::logger('migration_to_drupal')->info('Mapping Config should not be empty.');
     }
     return NULL;
   }
