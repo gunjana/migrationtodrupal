@@ -29,4 +29,5 @@ class CustomMapping extends ProcessPluginBase {
     }
     return NULL;
   }
+
 }
