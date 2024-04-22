@@ -1,0 +1,7 @@
+migration_to_drupal.mapping_form:
+  path: '/admin/config/mapping_form'
+  defaults:
+    _form: '\Drupal\migration_to_drupal\Form\MappingForm'
+    _title: 'Mapping Form'
+  requirements:
+    _permission: 'administer site configuration'

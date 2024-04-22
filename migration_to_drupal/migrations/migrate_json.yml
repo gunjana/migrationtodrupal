@@ -1,0 +1,51 @@
+id: migrate_json
+label: 'Import Json to Entity'
+dependencies:
+  enforced:
+    module:
+      - migration_to_drupal
+source:
+  plugin: url
+  data_fetcher_plugin: file
+  data_parser_plugin: json
+  urls:
+    - 'modules/custom/migration_to_drupal/json_file/cities.json'
+  item_selector: data
+  fields:
+    -
+      name: identifier
+      label: 'ID'
+      selector: _id
+    -
+      name: city
+      label: 'City name'
+      selector: city
+    -
+      name: location
+      label: 'Location'
+      selector: loc
+    -
+      name: pop
+      label: 'Pop'
+      selector: pop
+    -
+      name: state
+      label: 'State'
+      selector: state
+  ids:
+    identifier:
+      type: string
+process:
+  identifier:
+    plugin: custom_mapping
+  city:
+    plugin: custom_mapping
+  state:
+    plugin: custom_mapping
+  pop:
+    plugin: custom_mapping
+  location:
+    plugin: custom_mapping
+destination:
+  plugin: 'entity:cities_data'
+migration_dependencies: {  }

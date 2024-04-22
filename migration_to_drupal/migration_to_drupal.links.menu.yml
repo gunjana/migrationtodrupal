@@ -1,0 +1,10 @@
+entity.cities_data.collection:
+  title: Cities Data
+  description: List of cities data
+  route_name: entity.cities_data.collection
+  parent: system.admin_content
+migration_to_drupal.mapping_form:
+  title: 'JSON Mapping Form'
+  parent: system.admin_config
+  description: 'Set mapping for cities data entity.'
+  route_name: migration_to_drupal.mapping_form

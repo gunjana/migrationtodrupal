@@ -1,0 +1,10 @@
+name: Migration To Drupal
+type: module
+description: 'This module will migrate json data to drupal entity.'
+package: Custom
+core_version_requirement: ^10
+configure: migration_to_drupal.mapping_form
+dependencies:
+  - geolocation:geolocation
+  - drupal:migrate
+  - migrate_plus:migrate_plus
