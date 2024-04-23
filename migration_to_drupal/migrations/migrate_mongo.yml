@@ -1,0 +1,23 @@
+id: migrate_mongo
+label: 'Import Mongodb Data to Entity'
+dependencies:
+  enforced:
+    module:
+      - migration_to_drupal
+migration_group: migrate_to_drupal
+source:
+  plugin: custom_source
+process:
+  identifier:
+    plugin: custom_mapping
+  city:
+    plugin: custom_mapping
+  state:
+    plugin: custom_mapping
+  pop:
+    plugin: custom_mapping
+  location:
+    plugin: custom_mapping
+destination:
+  plugin: 'entity:cities_data'
+migration_dependencies: {  }
