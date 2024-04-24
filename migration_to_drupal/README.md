@@ -3,14 +3,14 @@
 ## Introduction
 
 - This Module defines 2 migration methods i.e. (mongodb, json)
-- The Json required for migration is provided inside the module itself under json_file folder
+- The Json for migration is provided inside the module under json_file folder
 - This module defines a new migration group i.e. migrate_to_drupal
 - Creates a new custom entity for city data (cities_data)
 - Migrates data provided in the JSON to the drupal entity
 - Migrates data from the mongodb database to the drupal entity
 - Provides a mapping form to map JSON data attributes to custom entity
 attributes
-- For Migration from the mongodb please make sure you have added source database in your settings.php
+- For Migration from mongodb make sure to add source database in settings.php
 
 ## Installation and Setup of module
 

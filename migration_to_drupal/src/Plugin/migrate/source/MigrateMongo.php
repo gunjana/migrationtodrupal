@@ -1,10 +1,5 @@
 <?php
 
-/**
- * @file
- * Contains \Drupal\migration_to_drupal\Plugin\migrate\source\MigrateMongo.
- */
-
 namespace Drupal\migration_to_drupal\Plugin\migrate\source;
 
 use Drupal\migrate\Plugin\migrate\source\SqlBase;
@@ -16,15 +11,15 @@ use Drupal\migrate\Plugin\migrate\source\SqlBase;
  *   id = "migrate_mongo"
  * )
  */
-
 class MigrateMongo extends SqlBase {
 
   /**
    * {@inheritdoc}
    */
   public function query() {
-    return $this->select('city_data', 'u')
-      ->fields('u', array('_id', 'city','loc','state', 'pop'));
+    $mb = \Drupal::service('mongodb.tools');
+    $collection = $mb->find("drupal", "city_data", "{}");
+    return $collection;
   }
 
   /**
@@ -39,17 +34,16 @@ class MigrateMongo extends SqlBase {
     return $fields;
   }
 
-
   /**
    * {@inheritdoc}
    */
   public function getIds() {
-    return array(
-      '_id' => array(
+    return [
+      '_id' => [
         'type' => 'integer',
         'alias' => 'u',
-      ),
-    );
+      ],
+    ];
   }
 
 }
