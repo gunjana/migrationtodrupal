@@ -10,6 +10,7 @@
 - Migrates data from the mongodb database to the drupal entity
 - Provides a mapping form to map JSON data attributes to custom entity
 attributes
+- For Migration from the mongodb please make sure you have added source database in your settings.php
 
 ## Installation and Setup of module
 

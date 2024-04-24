@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - migration_to_drupal
+  enforced:
+    module:
+      - migration_to_drupal
+id: migration_to_drupal
+label: 'Migration To Drupal'
+source_type: 'Custom tables'
+module: null
+shared_configuration:
+  # Specifying 'source' here means that this configuration will be merged into
+  # the 'source' configuration of each migration.
+  source:
+    # A better practice for real-world migrations would be to add a database
+    # connection to your external database in settings.php and reference its
+    # key here.
+    key: default

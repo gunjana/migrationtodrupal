@@ -1,0 +1,28 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - migration_to_drupal
+id: migrate_mongo
+migration_tags: null
+migration_group: migration_to_drupal
+label: Mongo
+source:
+  plugin: migrate_mongo
+process:
+  identifier:
+    plugin: custom_mapping
+  city:
+    plugin: custom_mapping
+  state:
+    plugin: custom_mapping
+  pop:
+    plugin: custom_mapping
+  location:
+    plugin: custom_mapping
+  status:
+    plugin: default_value
+    default_value: 1
+destination:
+  plugin: 'entity:cities_data'
+migration_dependencies: {  }
